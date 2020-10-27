@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1054634891397",
+    "firebase_url": "https://organizze-my-money.firebaseio.com",
+    "project_id": "organizze-my-money",
+    "storage_bucket": "organizze-my-money.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054634891397:android:4ae96091c39c6511e871ec",
+        "android_client_info": {
+          "package_name": "com.example.organizzemymoney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054634891397-s1c6cn1816dvn8qtj29uchksr89bq20b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.organizzemymoney",
+            "certificate_hash": "b11bed12050ca242ed000c8b29c0bd8dc009e795"
+          }
+        },
+        {
+          "client_id": "1054634891397-tqc2um7dvmfft7oo0qheoqeijgdcndkl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKEqhkjiPNvXoT5TDfAt5nrR6V54197h4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054634891397-tqc2um7dvmfft7oo0qheoqeijgdcndkl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

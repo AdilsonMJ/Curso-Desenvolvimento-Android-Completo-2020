@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F4D4AD</color>
+    <color name="colorPrimaryDark">#E0A210</color>
+    <color name="colorAccent">#DC7C02</color>
+
+    //FloatButton
+    <color name="colorPrimaryReceita">#3B52DE</color>
+    <color name="colorPrimaryDarkReceita">#021FD0</color>
+    <color name="colorAccentReceita">#132384</color>
+
+    <color name="colorPrimaryDespesa">#E6598D</color>
+    <color name="colorPrimaryDarkDespesa">#E40758</color>
+    <color name="colorAccentDespesa">#BC1C57</color>
+
+</resources>
