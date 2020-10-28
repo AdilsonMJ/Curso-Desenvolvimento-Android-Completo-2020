@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.RockPaperScissors.Helper.HistoricDAO;
+import com.example.RockPaperScissors.model_historic.Model_Historic;
+
 import java.util.Random;
 
 public class GameAcitivy extends AppCompatActivity {
@@ -19,6 +22,7 @@ public class GameAcitivy extends AppCompatActivity {
     private int player = 0;
     private TextView ComputerResult, playerResult;
     private int modelOfGame;
+    private HistoricDAO dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class GameAcitivy extends AppCompatActivity {
         //Get the choice of model of game
         Bundle choice = getIntent().getExtras();
         modelOfGame = choice.getInt("choiceMode");
+
+        dao = new HistoricDAO(this);
 
     }
 
@@ -93,6 +99,7 @@ public class GameAcitivy extends AppCompatActivity {
 
             if (pc == modelOfGame){
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                salvar("1/1", "12:00", "Lose", player, pc);
                 dialog.setTitle("YOU LOSE");
                 dialog.setMessage("sorry, I played of best of you! ");
                 dialog.setCancelable(false);
@@ -107,6 +114,7 @@ public class GameAcitivy extends AppCompatActivity {
                 }).show();
                 } else if (player == modelOfGame){
                     AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                    salvar("1/1", "12:00", "WIN", player, pc);
                     dialog.setTitle("YOU WIN");
                     dialog.setMessage("YOU ARE THE BEST ON THIS GAME ");
                     dialog.setIcon(R.drawable.win);
@@ -160,6 +168,13 @@ public class GameAcitivy extends AppCompatActivity {
         });
         dialog.show();
     }
+
+
+   public void salvar(String date, String time, String result, int player, int computer){
+       Model_Historic s = new Model_Historic(date, time, result, player, computer);
+       long id = dao.inserir(s);
+       Toast.makeText(this, "Historico salvo com id: " + id, Toast.LENGTH_SHORT).show();
+   }
 
 }
 

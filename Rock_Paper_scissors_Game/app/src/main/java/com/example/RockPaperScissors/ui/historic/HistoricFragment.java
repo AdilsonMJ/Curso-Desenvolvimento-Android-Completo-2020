@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.RockPaperScissors.Helper.HistoricDAO;
 import com.example.RockPaperScissors.R;
 import com.example.RockPaperScissors.adapter.Adapter_Historic;
 import com.example.RockPaperScissors.model_historic.Model_Historic;
@@ -40,4 +41,11 @@ public class HistoricFragment extends Fragment {
 
         return rootView;
     }
+
+    public void carregarHistoric(){
+        //Listar historic
+        HistoricDAO historicDAO = new HistoricDAO(getContext());
+        historics = historicDAO.listar();
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.example.RockPaperScissors.model_historic;
 
-public class Model_Historic {
+import java.io.Serializable;
+
+public class Model_Historic implements Serializable {
     private String date, time, result;
     private int player, computer;
 
@@ -31,5 +33,9 @@ public class Model_Historic {
 
     public int getComputer() {
         return computer;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
