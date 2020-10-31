@@ -8,20 +8,21 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class Conexao  extends SQLiteOpenHelper{
+public class BancoDados extends SQLiteOpenHelper{
 
-    private static final String name = "banco.db";
-    private static final int version = 1;
-    public static String historic;
+    public static  int VERSION = 1;
+    public static  String NAME_DB = "BANK.GAME";
+    public static  String TABLE_HISTORIC = "HISTORIC";
 
 
-    public Conexao(Context context) {
-        super(context, name, null, version);
+    public BancoDados(Context context) {
+        super(context, NAME_DB, null, VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-            db.execSQL("create table historic(id integer primary key autoincrement, " +
+            db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_HISTORIC +
+                    " (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "date varchar(10), time varchar(6), result varchar(5), player int(1), computer int(1))");
     }
 

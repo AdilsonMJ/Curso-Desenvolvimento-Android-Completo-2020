@@ -15,6 +15,9 @@ public class Model_Historic implements Serializable {
 
     }
 
+    public Model_Historic() {
+    }
+
     public String getDate() {
         return date;
     }
@@ -38,4 +41,22 @@ public class Model_Historic implements Serializable {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public void setPlayer(int player) {
+        this.player = player;
+    }
+
+    public void setComputer(int computer) {
+        this.computer = computer;
+    }
 }
+
+

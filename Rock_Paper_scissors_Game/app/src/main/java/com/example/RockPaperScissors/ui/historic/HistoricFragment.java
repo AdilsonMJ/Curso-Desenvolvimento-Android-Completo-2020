@@ -27,25 +27,24 @@ public class HistoricFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_historic, container, false);
-
         RecyclerView RC = rootView.findViewById(R.id.Rc_Historic);
+
+
+        HistoricDAO historicDAO = new HistoricDAO(getContext());
+        historics = historicDAO.listar();
+
+        Adapter_Historic adapter_historic = new Adapter_Historic(historics);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         RC.setLayoutManager(layoutManager);
         RC.setHasFixedSize(true);
         RC.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayout.VERTICAL));
-        Adapter_Historic adapter_historic = new Adapter_Historic();
         RC.setAdapter(adapter_historic);
 
 
-        return rootView;
-    }
 
-    public void carregarHistoric(){
-        //Listar historic
-        HistoricDAO historicDAO = new HistoricDAO(getContext());
-        historics = historicDAO.listar();
+        return rootView;
     }
 
 }

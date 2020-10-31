@@ -1,5 +1,6 @@
 package com.example.RockPaperScissors.adapter;
 
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.RockPaperScissors.R;
+import com.example.RockPaperScissors.model_historic.Model_Historic;
+
+import java.util.List;
 
 public class Adapter_Historic  extends RecyclerView.Adapter<Adapter_Historic.MVH> {
+
+
+        private List<Model_Historic> listHistoric;
+
+        public Adapter_Historic(List<Model_Historic> list) {this.listHistoric = list;}
 
 
     @NonNull
@@ -25,17 +34,20 @@ public class Adapter_Historic  extends RecyclerView.Adapter<Adapter_Historic.MVH
     @Override
     public void onBindViewHolder(@NonNull Adapter_Historic.MVH holder, int position) {
 
-        holder.Date.setText("12/11");
-        holder.Time.setText("13:00");
-        holder.Player.setText("5");
-        holder.Computer.setText("2");
-        holder.Result.setText("Win");
+            Model_Historic h = listHistoric.get(position);
+            holder.Date.setText(h.getDate());
+            holder.Time.setText(h.getTime());
+            holder.Result.setText(h.getResult());
+            holder.Player.setText(h.getPlayer());
+            holder.Computer.setText(h.getComputer());
+
+
 
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return this.listHistoric.size();
     }
 
     public class MVH extends RecyclerView.ViewHolder {

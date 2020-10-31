@@ -22,7 +22,7 @@ public class GameAcitivy extends AppCompatActivity {
     private int player = 0;
     private TextView ComputerResult, playerResult;
     private int modelOfGame;
-    private HistoricDAO dao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,6 @@ public class GameAcitivy extends AppCompatActivity {
         Bundle choice = getIntent().getExtras();
         modelOfGame = choice.getInt("choiceMode");
 
-        dao = new HistoricDAO(this);
 
     }
 
@@ -171,10 +170,12 @@ public class GameAcitivy extends AppCompatActivity {
 
 
    public void salvar(String date, String time, String result, int player, int computer){
+
+       HistoricDAO HDAO = new HistoricDAO(getApplicationContext());
        Model_Historic s = new Model_Historic(date, time, result, player, computer);
-       long id = dao.inserir(s);
-       Toast.makeText(this, "Historico salvo com id: " + id, Toast.LENGTH_SHORT).show();
-   }
+       HDAO.salvar(s);
+
+    }
 
 }
 
